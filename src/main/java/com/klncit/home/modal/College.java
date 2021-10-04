@@ -10,23 +10,22 @@ public class College {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private int id;
-	private String CollegeName;
+	private String Collegename;
 	private String Username;
 	private String Password;
-	private int CollegePhoneNumber;
-	private String CollegePostalAddress;
-	
+	private long Collegenumber;
+	private String Collegeaddress;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCollegeName() {
-		return CollegeName;
+	public String getCollegename() {
+		return Collegename;
 	}
-	public void setCollegeName(String collegeName) {
-		CollegeName = collegeName;
+	public void setCollegename(String collegename) {
+		Collegename = collegename;
 	}
 	public String getUsername() {
 		return Username;
@@ -40,18 +39,19 @@ public class College {
 	public void setPassword(String password) {
 		Password = password;
 	}
-	public int getCollegePhoneNumber() {
-		return CollegePhoneNumber;
+	public long getCollegenumber() {
+		return Collegenumber;
 	}
-	public void setCollegePhoneNumber(int collegePhoneNumber) {
-		CollegePhoneNumber = collegePhoneNumber;
+	public void setCollegenumber(long collegenumber) {
+		Collegenumber = collegenumber;
 	}
-	public String getCollegePostalAddress() {
-		return CollegePostalAddress;
+	public String getCollegeaddress() {
+		return Collegeaddress;
 	}
-	public void setCollegePostalAddress(String collegePostalAddress) {
-		CollegePostalAddress = collegePostalAddress;
+	public void setCollegeaddress(String collegeaddress) {
+		Collegeaddress = collegeaddress;
 	}
 	
-
+	
+	
 }

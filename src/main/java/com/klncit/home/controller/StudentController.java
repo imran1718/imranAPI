@@ -8,24 +8,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.klncit.home.modal.College;
-import com.klncit.home.repository.CollegeRepository;
+import com.klncit.home.modal.Student;
+import com.klncit.home.repository.StudentRepository;
 @RestController
-@RequestMapping(value="/college")
-public class CollegeController {
+@RequestMapping(value="/student")
+public class StudentController {
 	@Autowired
-	private CollegeRepository CollegeRepo;	
+	private StudentRepository StudentRepo;	
 	
-	
+
 	@PostMapping(value = "/insert")
-	public ResponseEntity<?>insertcollege(@RequestBody final College s){		
-		CollegeRepo.save(s);	
-		
+	public ResponseEntity<?>insertstudent(@RequestBody final Student s){
+		StudentRepo.save(s);		
+	
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body("college Registered Successfully");
+				.body("Student Registered Successfully");
 		
 	}
-	
 
 }

@@ -14,7 +14,7 @@ public class Student {
 	private String Lastname;
 	private String Username;
 	private String Password;
-	private long Mobilenumber;
+	private String Mobilenumber;
 	private String Email;
 	private String Address;
 	private String College;
@@ -48,10 +48,10 @@ public class Student {
 	public void setPassword(String password) {
 		Password = password;
 	}
-	public long getMobilenumber() {
+	public String getMobilenumber() {
 		return Mobilenumber;
 	}
-	public void setMobilenumber(long mobilenumber) {
+	public void setMobilenumber(String mobilenumber) {
 		Mobilenumber = mobilenumber;
 	}
 	public String getEmail() {

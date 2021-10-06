@@ -1,13 +1,13 @@
 package com.klncit.home.repository;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.klncit.home.modal.Student;
 
+
+
 public interface StudentRepository extends CrudRepository<Student, Integer> {
-//	@Query("SELECT u from User u where u.username=?1 u.password=?1")	
-//	User findOneByUsername(String username);
-//	User findOneByPassword(String password);
-
-
-}
+	@Query("SELECT sl FROM Student sl where sl.Username=?1 and  sl.Password=?2")	
+	public Student findyByUsernameAndPassword(String Username,String Password);	
+	}

@@ -13,7 +13,7 @@ public class College {
 	private String Collegename;
 	private String Username;
 	private String Password;
-	private double   Collegenumber;
+	private String   Collegenumber;
 	private String Collegeaddress;
 	public int getId() {
 		return id;
@@ -39,10 +39,10 @@ public class College {
 	public void setPassword(String password) {
 		Password = password;
 	}
-	public double getCollegenumber() {
+	public String getCollegenumber() {
 		return Collegenumber;
 	}
-	public void setCollegenumber(double collegenumber) {
+	public void setCollegenumber(String collegenumber) {
 		Collegenumber = collegenumber;
 	}
 	public String getCollegeaddress() {

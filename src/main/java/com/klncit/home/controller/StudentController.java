@@ -46,8 +46,8 @@ public class StudentController {
 		
 	}
 	@PostMapping(value = "/login")
-	public ResponseEntity<?>loginStudent(@RequestBody final Student sl){
-		Student student = (Student) studentRepo.findyByUsernameAndPassword(sl.getUsername(),sl.getPassword());		
+	public ResponseEntity<?>loginStudent(@RequestBody final Student logobj){
+		Student student = (Student) studentRepo.findyByUsernameAndPassword(logobj.getUsername(),logobj.getPassword());		
 		if(student!=null)
 			return ResponseEntity
 					.status(HttpStatus.OK)

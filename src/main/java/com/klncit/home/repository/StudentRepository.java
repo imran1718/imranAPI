@@ -8,6 +8,6 @@ import com.klncit.home.modal.Student;
 
 
 public interface StudentRepository extends CrudRepository<Student, Integer> {
-	@Query("SELECT sl FROM Student sl where sl.Username=?1 and  sl.Password=?2")	
+	@Query("SELECT logobj FROM Student logobj where logobj.Username=?1 and  logobj.Password=?2")	
 	public Student findyByUsernameAndPassword(String Username,String Password);	
 	}

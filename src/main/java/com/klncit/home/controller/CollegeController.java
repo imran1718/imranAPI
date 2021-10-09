@@ -18,12 +18,12 @@ import com.klncit.home.repository.CollegeRepository;
 @RequestMapping(value="/college")
 public class CollegeController {
 	@Autowired
-	private CollegeRepository CollegeRepo;	
+	private CollegeRepository collegeRepo;	
 	
 	
 	@PostMapping(value = "/insert")
 	public ResponseEntity<?>insertcollege(@RequestBody final College s){		
-		CollegeRepo.save(s);	
+		collegeRepo.save(s);	
 		
 		return ResponseEntity
 				.status(HttpStatus.OK)
@@ -32,14 +32,14 @@ public class CollegeController {
 	}
 	@GetMapping(value = "/getAll")
 	public ResponseEntity<?> getAllColleges(){
-		ArrayList<College> colleges = (ArrayList<College>) CollegeRepo.findAll();
+		ArrayList<College> colleges = (ArrayList<College>) collegeRepo.findAll();
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(colleges);
 	}
 	@GetMapping(value = "/delete/{id}")
 	public ResponseEntity<?> deleteCollege(@PathVariable final int id){
-		CollegeRepo.deleteById(id);
+		collegeRepo.deleteById(id);
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body("college deleted Successfully!");
@@ -47,11 +47,23 @@ public class CollegeController {
 	}
 	@GetMapping(value = "/get/{id}")
 	public ResponseEntity<?> getCollege(@PathVariable final int id){
-		College college = CollegeRepo.findById(id).get();	
+		College college = collegeRepo.findById(id).get();	
         		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(college);
 	}
+	@PostMapping(value = "/login")
+	public ResponseEntity<?>loginCollege(@RequestBody final College logobj){
+		College college = (College) collegeRepo.findyByUsernameAndPassword(logobj.getUsername(),logobj.getPassword());		
+		if(college!=null)
+			return ResponseEntity
+					.status(HttpStatus.OK)
+					.body("login successfully");
+		else
+			return ResponseEntity
+					.status(HttpStatus.BAD_REQUEST)
+					.body("login failed");				
+	}		
 }
 	
 

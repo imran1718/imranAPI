@@ -32,10 +32,10 @@ public class StudentFeedbackController {
 	}
 	@GetMapping(value = "/getAll")
 	public ResponseEntity<?> getAllFeedbacks(){
-		ArrayList<Sfeedback> feedbacks = (ArrayList<Sfeedback>) sfeedbackRepo.findAll();
+		ArrayList<Sfeedback> sfeedbacks = (ArrayList<Sfeedback>) sfeedbackRepo.findAll();
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(feedbacks);
+				.body(sfeedbacks);
 	}
 
 }

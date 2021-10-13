@@ -45,6 +45,13 @@ public class StudentController {
 				.body("Student deleted Successfully!");
 		
 	}
+	@PostMapping(value="/update")
+	public ResponseEntity<?> updateCollege(@RequestBody final Student s){
+		studentRepo.save(s);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body("Student update successfully!");
+	}	
 	@PostMapping(value = "/login")
 	public ResponseEntity<?>loginStudent(@RequestBody final Student logobj){
 		Student student = (Student) studentRepo.findyByUsernameAndPassword(logobj.getUsername(),logobj.getPassword());		

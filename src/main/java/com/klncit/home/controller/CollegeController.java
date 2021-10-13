@@ -52,17 +52,29 @@ public class CollegeController {
 				.status(HttpStatus.OK)
 				.body(college);
 	}
+	@PostMapping(value="/update")
+	public ResponseEntity<?> updateCollege(@RequestBody final College c){
+		collegeRepo.save(c);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body("College update successfully!");
+	}	
 	@PostMapping(value = "/login")
 	public ResponseEntity<?>loginCollege(@RequestBody final College logobj){
 		College college = (College) collegeRepo.findyByUsernameAndPassword(logobj.getUsername(),logobj.getPassword());		
-		if(college!=null)
+		int collegeId;	
+		
+		if(college!=null) {
+			collegeId = college.getId();
 			return ResponseEntity
 					.status(HttpStatus.OK)
-					.body("login successfully");
-		else
+					.body(collegeId);
+	}
+		else {
 			return ResponseEntity
 					.status(HttpStatus.BAD_REQUEST)
-					.body("login failed");				
+					.body("login failed");	
+		}
 	}		
 }
 	
